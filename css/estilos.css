@@ -1,0 +1,252 @@
+/*Declaracion de Variables*/
+:root {
+  --primario: #cf9423;
+  --secundario: #0785f9;
+  --oscuro: #212121;
+  --gris: #b1b2b4;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Krub', sans-serif;
+  background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+  font-size: 1.6rem;
+}
+/************************************************/
+
+h1,h2,h3 {
+  margin: 0;
+}
+h2,h3 {
+  text-align: center;
+}
+
+h3 {
+  color: var(--secundario);
+  font-weight: 400;
+  font-size: 2.3rem;
+}
+
+p {
+  font-size: 1.4rem;
+  line-height: 2;
+}
+
+.site-header {
+  background-color: #fefefe;
+}
+
+.site-header nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+/*  Implementacion de flexbox    */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width:768px) {
+  .site-header nav {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+
+/*usamos la Variables declara como --oscuro*/
+.site-header nav a {
+  color: var(--oscuro);
+  font-size: 2.2rem;
+  text-decoration: none;
+  margin-bottom: 2rem;
+}
+
+/*remueve el padin del ultimo elemento de lavegacion.*/
+.site-header nav a:last-of-type {
+  margin-bottom: 0;
+}
+@media (min-width:768px) {
+  .site-header nav a {
+    margin-bottom: 0;
+  }
+}
+/****************  CABEZERA   ****************************/
+.hero {
+  height: 45rem;
+  background-image: url(../img/hero.jpg);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero::after {
+  /*siempre que se use un    after     usar un content*/
+  content:'';
+  background-color: rgba(0, 0, 0, .7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+/*  Trae al frente  para poder cabiar de color ya plicar   */
+.contenedor-hero {
+  color: #e6e5ee;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.contenedor-hero i {
+  font-size: 5rem;
+  color: var(--primario);
+}
+
+.boton {
+  background-color: var(--secundario);
+  padding: 1rem 5rem;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 1rem;
+  color: #f4edf5;
+  text-transform: uppercase;
+
+  font-weight: 700;
+  font-size: 2rem;
+  border-radius: .5rem;
+  border: none;
+}
+/*paa que aparesca la mano cuando este en el boton.*/
+.boton:hover {
+  cursor: pointer;
+}
+
+
+
+/*****************************************/
+/*  parte del main   */
+.contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f3f1f7;
+  padding: 3rem;
+  border-radius: 1rem;
+  margin: 3rem auto;
+/*para la sombra */
+  -webkit-box-shadow: 1px 4px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 1px 4px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 1px 4px 5px 0px rgba(0,0,0,0.75);
+}
+
+
+.contenedor-servicio {
+  margin-top: 3rem;
+}
+
+
+/*la parte de nuestro servicio lo coloca en columna*/
+@media (min-width:768px) {
+  .contenedor-servicio {
+    display: flex;
+    justify-content: space-between;
+  }
+  .servicio {
+    flex: 0 0 calc(33.3% - 1rem); /*factor de crecimiento para cada columna*/
+  }
+}
+
+/**********   para que los iconos esten en circulos   ***************/
+/****** centar los los circulas   ********/
+.servicio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.iconos {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: var(--primario);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.iconos {
+  font-size: 4rem;
+}
+
+
+/***********   CONTACTO   *****************/
+form {
+  background-color: var(--gris);
+  padding: 2rem;
+  border-radius: 1rem;
+  margin: 2.8rem;
+}
+
+form legend {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--primario);
+  margin: 3rem 0;
+}
+@media (min-width:768px) {
+  form {
+    max-width: 800px;
+    margin: 3rem auto;
+  }
+  .contenedor-campos {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .campo {
+    flex: 0 0 calc(50% - 1rem);
+  }
+}
+
+.campo {
+  display: flex;
+  /*separacion entre las cajas de texto hacia abajo*/
+  margin-bottom: 2rem;
+  /*centralos verticalmente*/
+  align-items: center;
+}
+
+.campo label {
+  flex: 0 0 90px;
+  padding-top: 1.5rem;
+  color: #141314;
+}
+
+.campo input {
+  flex: 1; /*auto incrmento*/
+  height:  4rem;
+}
+
+.campo textarea {
+  flex: 1;
+  height: 6rem;
+}
+
+/*para que tome el 100% del espacio que hay*/
+.w-100 {
+  flex: 0 0 100%;
+}
+
+.enviar {
+  display: flex;
+  justify-content: flex-end;
+}
